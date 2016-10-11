@@ -1,0 +1,17 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+logging:
+  file: /var/log/event-service.log
+  level:
+    root: INFO
+server:
+  port: 8080
+
+---
+spring:
+  profiles: docker
+  data:
+    mongodb:
+      host: mongo

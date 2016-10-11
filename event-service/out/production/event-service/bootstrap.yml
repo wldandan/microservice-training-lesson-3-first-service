@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: event
+  cloud:
+    config:
+      uri: http://localhost:8888
+---
+spring:
+  profiles: docker
+  cloud:
+    config:
+      uri: http://config-server:8888
+
+---
+spring:
+  profiles: pact-test
+  cloud:
+    config:
+      enabled: false
+
+eureka:
+  client:
+    enabled: false
