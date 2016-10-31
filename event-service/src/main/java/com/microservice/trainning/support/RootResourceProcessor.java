@@ -17,7 +17,11 @@ public class RootResourceProcessor implements ResourceProcessor<RepositoryLinksR
 
     @Override
     public RepositoryLinksResource process(RepositoryLinksResource resource) {
-        resource.add(new Link(new UriTemplate(linkTo(ApplicationContext.class, "").slash("events").toString() + "/{eventId}"), "event"));
+        resource.add(
+                new Link(
+                        new UriTemplate(
+                                linkTo(ApplicationContext.class, "").
+                                        slash("events").toString() + "/{eventId}"), "event"));
         return resource;
     }
 }
