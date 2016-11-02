@@ -2,7 +2,9 @@
 
 * 安装MongoDB(Mac中可以使用brew)
 
-```brew install mongodb```
+```
+brew install mongodb
+```
 
 
 * 启动MongoDB
