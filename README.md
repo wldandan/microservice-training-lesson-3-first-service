@@ -18,6 +18,12 @@ mongod --config /usr/local/etc/mongod.conf
 ```
 mongoimport --db test --collection event --type json --file db-seed/events-with-id.json
 ```
+或者执行
+
+```
+./db-seed/seed_local.sh
+```
+
 
 * 启动应用
 
@@ -46,15 +52,24 @@ curl -H "Content-type: application/json" http://localhost:8080/events
 ```
 START_AT=$(date +"%Y-%m-%d") && END_AT=$(date +"%Y-%m-%d") && curl -H "Content-type: application/json" -d "{\"name\": \"测试活动\", \"numberLimit\": 20, \"mainPhoto\": \"http://localhost/image/main_photo.png\", \"introduction\": \"活动介绍\", \"startAt\": \"$START_AT\", \"endAt\": \"$END_AT\"}" http://localhost:8080/events
 ```
+* 获取Event详情
+
+```
+curl http://localhost:8080/events/{ID}
+```
+
+
+
 
 * 更新一个Event
 
 ```
-START_AT=$(date +"%Y-%m-%d") && END_AT=$(date +"%Y-%m-%d") && curl -H "Content-type: application/json" -d "{\"name\": \"测试活动-updated\", \"numberLimit\": 20, \"mainPhoto\": \"http://localhost/image/main_photo.png\", \"introduction\": \"活动介绍\", \"startAt\": \"$START_AT\", \"endAt\": \"$END_AT\"}" http://localhost:8080/events/{ID}
+START_AT=$(date +"%Y-%m-%d") && END_AT=$(date +"%Y-%m-%d") && curl -H "Content-type: application/json" -X PUT -d "{\"name\": \"测试活动-updated\", \"numberLimit\": 20, \"mainPhoto\": \"http://localhost/image/main_photo.png\", \"introduction\": \"活动介绍\", \"startAt\": \"$START_AT\", \"endAt\": \"$END_AT\"}" http://localhost:8080/events/{ID}
 ```
 
 
 * 删除一个Event
+
 ```
 curl -X DELETE http://localhost:8080/events/{ID}
 ```
