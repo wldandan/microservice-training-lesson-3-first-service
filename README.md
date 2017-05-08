@@ -1,9 +1,12 @@
 ### 本地环境中运行
 
-* 安装MongoDB(Mac中可以使用brew)
+* 安装MongoDB
 
 ```
+//Mac中使用brew直接安装
 brew install mongodb
+
+//Windows请自行下载并安装
 ```
 
 
@@ -39,7 +42,7 @@ mongoimport --db test --collection event --type json --file db-seed/events-with-
 ./db-seed/seed.sh
 ```
 
-### Event管理
+### Event API
 
 * 获取Event列表
 
@@ -55,21 +58,19 @@ START_AT=$(date +"%Y-%m-%d") && END_AT=$(date +"%Y-%m-%d") && curl -H "Content-t
 * 获取Event详情
 
 ```
-curl http://localhost:8080/events/{ID}
+curl http://localhost:8080/events/57c811115d6fe2b86380d53b
 ```
-
-
 
 
 * 更新一个Event
 
 ```
-START_AT=$(date +"%Y-%m-%d") && END_AT=$(date +"%Y-%m-%d") && curl -H "Content-type: application/json" -X PUT -d "{\"name\": \"测试活动-updated\", \"numberLimit\": 20, \"mainPhoto\": \"http://localhost/image/main_photo.png\", \"introduction\": \"活动介绍\", \"startAt\": \"$START_AT\", \"endAt\": \"$END_AT\"}" http://localhost:8080/events/{ID}
+START_AT=$(date +"%Y-%m-%d") && END_AT=$(date +"%Y-%m-%d") && curl -H "Content-type: application/json" -X PUT -d "{\"name\": \"测试活动-updated\", \"numberLimit\": 20, \"mainPhoto\": \"http://localhost/image/main_photo.png\", \"introduction\": \"活动介绍\", \"startAt\": \"$START_AT\", \"endAt\": \"$END_AT\"}" http://localhost:8080/events/57c811115d6fe2b86380d53b
 ```
 
 
 * 删除一个Event
 
 ```
-curl -X DELETE http://localhost:8080/events/{ID}
+curl -X DELETE http://localhost:8080/events/57c811115d6fe2b86380d53b
 ```
