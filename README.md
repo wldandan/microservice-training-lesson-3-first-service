@@ -1,40 +1,45 @@
-### 本地环境中运行
+### 一、本地环境中运行
 
-* 安装MongoDB
+* 1.安装MongoDB
 
 ```
 //Mac中使用brew直接安装
 brew install mongodb
 
 //Windows请自行下载并安装
+......
 ```
 
 
-* 启动MongoDB
+* 2.启动MongoDB
 
 ```
 mongod --config /usr/local/etc/mongod.conf
 ```
 
-* 加载测试数据
+* 3.加载测试数据
 
+可以使用Mongo命令加载数据
+	
+	
 ```
 mongoimport --db test --collection event --type json --file db-seed/events-with-id.json
 ```
-或者执行
+
+或者执行如下脚本
 
 ```
 ./db-seed/seed_local.sh
 ```
 
 
-* 启动应用
+* 4.启动应用
 
 ```
 ./gradlew bootRun
 ```
 
-### Docker环境中运行
+### 二、Docker环境中运行
 
 ```
 ./gradlew clean build
@@ -42,7 +47,7 @@ mongoimport --db test --collection event --type json --file db-seed/events-with-
 ./db-seed/seed.sh
 ```
 
-### Event API
+### 三、查看Event API
 
 * 获取Event列表
 
