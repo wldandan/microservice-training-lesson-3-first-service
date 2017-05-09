@@ -4,8 +4,9 @@
 * REST/HAL 101
 * Docker 101
 * 构建第一个微服务
-* 使用MongoDB存储数据
+* 使用HAL完成服务间同步通信
 * 使用HAL-Browser浏览服务接口
+* 使用MongoDB存储数据
 * 构建Dockerfile 
 * 使用Docker-compose运行服务
 
@@ -71,32 +72,32 @@ mongoimport --db test --collection event --type json --file db-seed/events-with-
 
 ![HAL](/images/hal-results-list.png)
 
-* 使用Curl发送请求，获取Events的列表信息
+* 使用Curl发送请求，获取Events列表信息
 
 	```
 	curl -H "Content-type: application/json" http://localhost:8080/events
 	```
  
-* 创建一个Event
+* 使用Curl发送请求，创建一个Event
 
 ```
 START_AT=$(date +"%Y-%m-%d") && END_AT=$(date +"%Y-%m-%d") && curl -H "Content-type: application/json" -d "{\"name\": \"测试活动\", \"numberLimit\": 20, \"mainPhoto\": \"http://localhost/image/main_photo.png\", \"introduction\": \"活动介绍\", \"startAt\": \"$START_AT\", \"endAt\": \"$END_AT\"}" http://localhost:8080/events
 ```
-* 获取Event详情
+* 使用Curl发送请求，获取Event详情
 
 ```
 curl http://localhost:8080/events/57c811115d6fe2b86380d53b
 ```
 
 
-* 更新一个Event
+* 使用Curl发送请求，更新一个Event
 
 ```
 START_AT=$(date +"%Y-%m-%d") && END_AT=$(date +"%Y-%m-%d") && curl -H "Content-type: application/json" -X PUT -d "{\"name\": \"测试活动-updated\", \"numberLimit\": 20, \"mainPhoto\": \"http://localhost/image/main_photo.png\", \"introduction\": \"活动介绍\", \"startAt\": \"$START_AT\", \"endAt\": \"$END_AT\"}" http://localhost:8080/events/57c811115d6fe2b86380d53b
 ```
 
 
-* 删除一个Event
+* 使用Curl发送请求，删除一个Event
 
 ```
 curl -X DELETE http://localhost:8080/events/57c811115d6fe2b86380d53b
@@ -106,6 +107,3 @@ curl -X DELETE http://localhost:8080/events/57c811115d6fe2b86380d53b
 ### 其他
 
 本代码来源于《微服务架构与实践》视频课，更多内容请访问[详情](http://www.stuq.org/course/1149)
-
-![微服务架构与实践](/images/course-index.png)
-![微服务架构与实践](/images/course-menu.png)
