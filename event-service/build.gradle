@@ -30,7 +30,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    // compile 'org.springframework.data:spring-data-rest-hal-browser'
+    compile 'org.springframework.data:spring-data-rest-hal-browser'
     compile "org.springframework.boot:spring-boot-starter-data-rest"
     compile "org.springframework.boot:spring-boot-starter-data-mongodb"
     compile 'org.springframework.boot:spring-boot-starter-actuator'
