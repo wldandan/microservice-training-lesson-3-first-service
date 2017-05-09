@@ -49,11 +49,23 @@ mongoimport --db test --collection event --type json --file db-seed/events-with-
 
 ### 三、查看Event API
 
-* 获取Event列表
+* 使用(HAL)[phlyrestfully.readthedocs.org/en/latest/halprimer.html]显示服务首页API
 
-```
-curl -H "Content-type: application/json" http://localhost:8080/events
-```
+![HAL](/images/hal-index.png)
+
+
+* 获取Events列表信息
+
+#### 使用HAL
+
+![HAL](/images/hal-results-list.png)
+
+
+#### 使用Curl
+
+	```
+	curl -H "Content-type: application/json" http://localhost:8080/events
+	```
  
 * 创建一个Event
 
