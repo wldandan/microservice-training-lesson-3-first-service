@@ -1,4 +1,17 @@
-### 一、本地环境中运行
+## 第3课 - 构建第一个服务
+
+### 一、主要知识点
+* REST/HAL 101
+* Docker 101
+* 构建第一个微服务
+* 使用MongoDB存储数据
+* 使用HAL-Browser浏览服务接口
+* 构建Dockerfile 
+* 使用Docker-compose运行服务
+
+
+
+### 二、本地运行服务
 
 * 1.安装MongoDB
 
@@ -39,7 +52,7 @@ mongoimport --db test --collection event --type json --file db-seed/events-with-
 ./gradlew bootRun
 ```
 
-### 二、Docker环境中运行
+### 三、Docker中运行服务
 
 ```
 ./gradlew clean build
@@ -47,21 +60,18 @@ mongoimport --db test --collection event --type json --file db-seed/events-with-
 ./db-seed/seed.sh
 ```
 
-### 三、查看Event API
+### 四、查看服务接口
 
-* 使用(HAL)[phlyrestfully.readthedocs.org/en/latest/halprimer.html]显示服务首页API
+* 使用[HAL](phlyrestfully.readthedocs.org/en/latest/halprimer.html)显示服务首页API
 
 ![HAL](/images/hal-index.png)
 
 
-* 获取Events列表信息
-
-#### 使用HAL
+* 使用HAL可视化查看Events的列表信息
 
 ![HAL](/images/hal-results-list.png)
 
-
-#### 使用Curl
+* 使用Curl发送请求，获取Events的列表信息
 
 	```
 	curl -H "Content-type: application/json" http://localhost:8080/events
